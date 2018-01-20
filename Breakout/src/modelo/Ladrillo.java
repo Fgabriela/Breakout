@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,23 +8,36 @@ package modelo;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JPanel;
 
 /**
  *
  * @author USER
  */
-public class Ladrillo {
-    
+public class Ladrillo
+{
     private int x;
     private int y;
     private int alto;
     private int ancho;
-
+    public boolean visible;
+  
+    
     public Ladrillo(int x, int y, int alto, int ancho) {
         this.x = x;
         this.y = y;
         this.alto = alto;
         this.ancho = ancho;
+       
+        visible=true;
+    }
+    
+    public void paintComponent(Graphics grphcs) 
+    {
+        grphcs.setColor(Color.BLUE);
+        grphcs.fillRect(x, y, alto, ancho);   
+        
+        
     }
 
     public int getX() {
@@ -42,30 +56,15 @@ public class Ladrillo {
         this.y = y;
     }
 
-    public int getAlto() {
-        return alto;
+    public boolean isVisible() {
+        return visible;
     }
 
-    public void setAlto(int alto) {
-        this.alto = alto;
-    }
-
-    public int getAncho() {
-        return ancho;
-    }
-
-    public void setAncho(int ancho) {
-        this.ancho = ancho;
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
    
-    
-    public void paintComponent(Graphics grphcs) 
-    {
-        grphcs.setColor(Color.ORANGE);   
-        grphcs.fillRect(x, y, alto, ancho);
-           
-    }
-    
-    
+
+   
 }

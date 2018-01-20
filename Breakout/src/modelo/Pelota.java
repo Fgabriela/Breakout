@@ -61,7 +61,7 @@ public class Pelota {
    
     public void paintComponent(Graphics grphcs) 
     {
-        grphcs.setColor(Color.RED);
+        grphcs.setColor(Color.LIGHT_GRAY);
         grphcs.fillOval(x, y, alto, ancho);
     }
     

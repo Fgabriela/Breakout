@@ -1,20 +1,28 @@
 
 package paquete;
 
+import Controlador.Controlador;
+import Controlador.CorreJuego;
+import Controlador.Panel;
+
+import Vista.Juego;
 import Vista.PanelInicial1;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
 public class Principal {
 
     public static void main(String[] args) 
     {
-        JFrame ventana = new JFrame();
-        ventana.setTitle("BrakeOut");
-        ventana.setSize(800, 500);
-        PanelInicial1 pI=new PanelInicial1();
-        ventana.setContentPane(pI);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
+        Panel pI=new Panel();
+        Juego j=new Juego(pI);
+        j.setTitle("BreakOut");
+        j.setSize(800, 500);
+        
+        CorreJuego cj=new CorreJuego("BrakeOut",pI);
+        cj.start();
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setVisible(true);
         
     }
     

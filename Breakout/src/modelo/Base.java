@@ -60,7 +60,7 @@ public class Base {
     
     public void paintComponent(Graphics grphcs) 
     {
-            grphcs.setColor(Color.BLUE);
+            grphcs.setColor(Color.RED);
             grphcs.fillRect(x, y, alto, ancho);
            
     }
