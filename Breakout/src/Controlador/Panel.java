@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Vista.PanelInicial1;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.logging.Level;
@@ -24,7 +24,6 @@ public class Panel extends JPanel
 {
    
     private Ladrillo ladrilloList[]=new Ladrillo[30];
-    private PanelInicial1 pI;
     private int valx[];
     private int valy[];
     private int cont=0;
@@ -45,7 +44,7 @@ public class Panel extends JPanel
     private int incrementox=20;
     private int incrementoy=20;
     private int contador;
-    private int contador2=0;
+    private int contador2;
    
     
     public Panel() 
@@ -90,6 +89,7 @@ public class Panel extends JPanel
                 {
                     ladrilloList[numLadrillos].paintComponent(grphcs);
                 }
+                
                 contY=contY+20;
                 numLadrillos++;
                
@@ -147,19 +147,28 @@ public class Panel extends JPanel
                 ladrillo.setVisible(false);
                 ladrillo.setX(-20);
                 contador++;
+                contador2++;
                 numLadrillos--;
+                System.out.println("Contador "+contador2);
                
             }
                 
         }
         
-        if((contador2==30)||(((x2<x1)||(x2>posBasefinalx))&&(y2>posBasefinaly)))
+        if(((x2<x1)||(x2>posBasefinalx))&&(y2>posBasefinaly))
         {
             JOptionPane.showMessageDialog(this,"Juego Terminado");
             band=false;
             System.exit(WIDTH);
             
                 
+        }
+        
+        if(contador2==98)
+        {
+            JOptionPane.showMessageDialog(this,"Haz ganado!");
+            band=false;
+            System.exit(WIDTH);
         }
           
     }
@@ -170,16 +179,6 @@ public class Panel extends JPanel
 
     public void setBand(boolean band) {
         this.band = band;
-    }
-
-    
-    
-    public PanelInicial1 getpI() {
-        return pI;
-    }
-
-    public void setpI(PanelInicial1 pI) {
-        this.pI = pI;
     }
 
     public int getX1() {

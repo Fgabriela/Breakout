@@ -1,12 +1,8 @@
 
-package paquete;
-
-import Controlador.Controlador;
+package Controlador;
 import Controlador.CorreJuego;
 import Controlador.Panel;
-
 import Vista.Juego;
-import Vista.PanelInicial1;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
