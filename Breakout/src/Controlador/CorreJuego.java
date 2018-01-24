@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Vista.Panel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,7 +50,8 @@ public class CorreJuego extends java.lang.Thread
     public void run() 
     {
         super.run();
-        this.Movimientos();
+        
+        Movimientos();
     }
     
 }
