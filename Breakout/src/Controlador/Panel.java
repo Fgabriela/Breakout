@@ -6,6 +6,7 @@
 package Controlador;
 
 
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.logging.Level;
@@ -22,7 +23,9 @@ import modelo.Pelota;
  */
 public class Panel extends JPanel
 {
-   
+    private AudioClip sonidoBase=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/bump.wav"));;
+    private AudioClip sonidoLadrillo=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/ping.wav"));;
+    
     private Ladrillo ladrilloList[]=new Ladrillo[30];
     private int valx[];
     private int valy[];
@@ -128,6 +131,7 @@ public class Panel extends JPanel
         {
            
             incrementoy=incrementoy*-1;
+            sonidoBase.play();
             
         }
         
@@ -149,7 +153,7 @@ public class Panel extends JPanel
                 contador++;
                 contador2++;
                 numLadrillos--;
-                System.out.println("Contador "+contador2);
+                sonidoLadrillo.play();
                
             }
                 
@@ -157,7 +161,9 @@ public class Panel extends JPanel
         
         if(((x2<x1)||(x2>posBasefinalx))&&(y2>posBasefinaly))
         {
+            
             JOptionPane.showMessageDialog(this,"Juego Terminado");
+            
             band=false;
             System.exit(WIDTH);
             
