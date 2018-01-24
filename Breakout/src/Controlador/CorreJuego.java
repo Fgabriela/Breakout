@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Controlador.Panel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,45 +12,38 @@ import java.util.logging.Logger;
  *
  * @author USER
  */
-public class CorreJuego extends java.lang.Thread
-{
+public class CorreJuego extends java.lang.Thread {
+
     private Panel p;
 
     public CorreJuego(String string, Panel p) {
         super(string);
-        this.p=p;
+        this.p = p;
     }
-    
-    public void Movimientos()
-    {
+
+    public void Movimientos() {
         boolean band;
-        
-       
-        do
-        {
-            band=true;
-            
+
+        do {
+            band = true;
+
             try {
                 Thread.sleep(100);
                 this.p.repaint();
-            } catch (InterruptedException ex) 
-            {
+            } catch (InterruptedException ex) {
                 Logger.getLogger(CorreJuego.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             this.p.MovPelota();
-            band=this.p.isBand();
-            
-        }while(band==true);
+            band = this.p.isBand();
+
+        } while (band == true);
     }
-    
-    
+
     @Override
-    public void run() 
-    {
+    public void run() {
         super.run();
-        
-        Movimientos();
+        this.Movimientos();
     }
-    
+
 }

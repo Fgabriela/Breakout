@@ -11,8 +11,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
-public class Juego extends JFrame implements KeyListener
-{
+/**
+ *
+ * @author USER
+ */
+public class Juego extends JFrame implements KeyListener {
+
     private Panel panel;
 
     public Juego(Panel panel) {
@@ -23,45 +27,37 @@ public class Juego extends JFrame implements KeyListener
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
     @Override
-    public void keyPressed(KeyEvent e) 
-    {
-        
-        if(e.getKeyCode()==37)
-        {
-            panel.setX1(panel.getX1()-40);
-            int posfinalX=panel.getX1()+110;
-            if(posfinalX<0)
-            {
+    public void keyPressed(KeyEvent e) {
+
+        if (e.getKeyCode() == 37) {
+            panel.setX1(panel.getX1() - 40);
+            int posfinalX = panel.getX1() + 110;
+            if (posfinalX < 0) {
                 panel.setX1(674);
-               
+
             }
-            
-            
+
         }
-             
-        if(e.getKeyCode()==39)
-        {
-           
-            panel.setX1(panel.getX1()+40);
-            
-            if(panel.getX1()>800)
-            {
+
+        if (e.getKeyCode() == 39) {
+
+            panel.setX1(panel.getX1() + 40);
+
+            if (panel.getX1() > 800) {
                 panel.setX1(0);
-               
+
             }
         }
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-         
+
     }
-    
-   
-    
+
 }
