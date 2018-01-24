@@ -23,9 +23,10 @@ import modelo.Pelota;
  */
 public class Panel extends JPanel
 {
-    private AudioClip sonidoBase=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/bump.wav"));;
-    private AudioClip sonidoLadrillo=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/ping.wav"));;
-    
+    private AudioClip sonidoBase=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/bump.wav"));
+    private AudioClip sonidoLadrillo=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/ping.wav"));
+    private AudioClip gameOver=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/Gameover.wav"));
+    private AudioClip youWin=java.applet.Applet.newAudioClip(getClass().getResource("/Controlador/youwin.wav"));
     private Ladrillo ladrilloList[]=new Ladrillo[30];
     private int valx[];
     private int valy[];
@@ -144,15 +145,16 @@ public class Panel extends JPanel
             posLadrillofinalx=ladrillo.getX()+70;
             posLadrillofinaly=ladrillo.getY()+15;
            
-            if((x2>=ladrillo.getX())&&(x2<=posLadrillofinalx)&&(y2>=ladrillo.getY())&& (y2<=posLadrillofinaly))
+            if((x2>=ladrillo.getX())&&(x2<=posLadrillofinalx)&&(y2>=ladrillo.getY()-20)&& (y2<=posLadrillofinaly))
             {
                    
                 incrementoy=incrementoy*-1;
                 ladrillo.setVisible(false);
-                ladrillo.setX(-20);
+                ladrillo.setX(-50);
+                ladrillo.setY(600);
                 contador++;
                 contador2++;
-                numLadrillos--;
+                //numLadrillos--;
                 sonidoLadrillo.play();
                
             }
@@ -161,17 +163,17 @@ public class Panel extends JPanel
         
         if(((x2<x1)||(x2>posBasefinalx))&&(y2>posBasefinaly))
         {
-            
+            gameOver.play();
             JOptionPane.showMessageDialog(this,"Juego Terminado");
-            
             band=false;
             System.exit(WIDTH);
             
                 
         }
         
-        if(contador2==98)
+        if(contador2==30)
         {
+            youWin.play();
             JOptionPane.showMessageDialog(this,"Haz ganado!");
             band=false;
             System.exit(WIDTH);
