@@ -11,10 +11,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
-/**
- *
- * @author USER
- */
 public class Juego extends JFrame implements KeyListener
 {
     private Panel panel;

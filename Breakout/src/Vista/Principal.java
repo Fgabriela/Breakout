@@ -1,5 +1,6 @@
 
-package Controlador;
+package Vista;
+import Controlador.CorreJuego;
 import Controlador.CorreJuego;
 import Controlador.Panel;
 import Vista.Juego;
